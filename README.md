@@ -4,7 +4,7 @@ Custom hardware/software solution to remove the factory navigation system from a
 
  - [Wiki] for more info.
  - [eZ Navi-Delete Thread on the 370Z.com] with discussion.
- - [Thread on the370Z.com] showing my new stereo installation paird with the eZ Navi-Delete
+ - [Stereo Thread on the370Z.com] showing my new stereo installation paird with the eZ Navi-Delete
 
 ### Introduction
 
