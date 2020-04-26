@@ -11,10 +11,15 @@ I have been working on a way to delete the factory Navi in my ‘09 370Z while s
 
 Custom interfaces available:
 - Dial Control Connector: Base model AC control module interface (current scope)
+  - Plug and play usage of the Base Model AC controller module with Navi Model CAN based AC systems.
 - Steering Wheel Control Connector: Steering wheel control signals from resistive switch network (future firmware work)
+  - Analog steering wheel control interface to monitor buttons and communicate states to tablet based systems.
 - User Out Connector: Breaks out potentially useful signals from the wiring harness to be used in custom stereo installs and custom expandability
+  - Breaks out signals on the car's wiring harness and microprocessor for future expandability. 
 - USB: Programming interface and wired data communication port (data communication is future firmware work)
+  - Allows for a wired connection to program the board (or flash updates) and to be able to communicate CAN messages to the HU. This communication can be used to update an app with the AC status when using the AC dial module, or it can be used as bidirectional communication between an app running on the HU to control the AC and update status on the screen (no AC dial module used, all touch screen).
 - Bluetooth: Wireless data interface with apps running on custom HU or tablet installs (future firmware work)
+  - Intended to be an alternative to the USB connection for normal operation (not for programming) in systems that cannot accept a USB conenction.
 
 ### Intended Configuration Scenarios
 
@@ -30,8 +35,18 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [Initial Harwdare Test]
 - [Rev 0.1 PCB Hardware Test]
 
+### Code Prerequisites
+- [STM32duino Bootloader] - Bootloader to allow USB programming
+- [Arduino STM32] - Core library
+- [Everytime Library] - Scheduler library
+- [MCP2515 Library] - CAN Controller library
 
 [Wiki]:https://github.com/radensb/eZ_Navi-Delete/wiki
 [Thread on the370Z.com]:http://www.the370z.com/audio-video/130471-ez-navi-delete-project.html
 [Initial Harwdare Test]:https://www.youtube.com/watch?v=1-dMO8ove7c&feature=youtu.be
 [Rev 0.1 PCB Hardware Test]:https://youtu.be/FeSBLwDEIZM
+[Everytime Library]: https://www.arduinolibraries.info/libraries/everytime
+[MCP2515 Library]: https://github.com/autowp/arduino-mcp2515
+[STM32duino Bootloader]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
+[Arduino STM32]: https://github.com/rogerclarkmelbourne/Arduino_STM32
+
