@@ -5,16 +5,10 @@
 Nissan370Z_AC_Dial::Nissan370Z_AC_Dial(HardwareSerial* DialUart)
 {
     _dial = DialUart;
-    //_b0_data = new uint8_t[5];
-    //_b1_data = new uint8_t[5];
-    //_dial_status = new uint8_t[5];
 }
 
 Nissan370Z_AC_Dial::~Nissan370Z_AC_Dial()
 {
-    //delete[] _b0_data;
-    //delete[] _b1_data;
-    //delete[] _dial_status;
 }
 
 void Nissan370Z_AC_Dial::begin()
@@ -41,9 +35,8 @@ void Nissan370Z_AC_Dial::checkDialCom()
         if(i == 0) xorResult = cmdCheck[0];
         else xorResult ^= cmdCheck[i];
     }
-    //Serial.write(xorResult);Serial.print(" : ");Serial.write(_dial->read());Serial.println(); return;
+
     if(xorResult != _dial->read()) return;
-    //Serial.println("D");
     cmd[0] = cmdType;
     cmd[1] = cmdCheck[0];
     cmd[2] = cmdCheck[1];
@@ -80,19 +73,17 @@ void Nissan370Z_AC_Dial::_updateB0DialStatus(uint8_t* cmd)
     
     bool boolResult = (bool)(acRec & UART_RECIRCULATION_BUTTON_MASK);
     //code to convert B0 data into CAN values and store
-    if (boolResult != (bool)(PREV_B0_AC_REC & UART_RECIRCULATION_BUTTON_MASK)) //_climateControl->getPrevDialCtrl(DIAL_CTRL_STATE_RECIRC_MASK))
+    if (boolResult != (bool)(PREV_B0_AC_REC & UART_RECIRCULATION_BUTTON_MASK))
     {
-        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_RECIRC_MASK;//  _climateControl->setToggleRequest(true, DIAL_CTRL_STATE_RECIRC_MASK);
-        //_climateControl->setPrevDialCtrl(boolResult, DIAL_CTRL_STATE_RECIRC_MASK);
+        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_RECIRC_MASK;
     }
 
-    if(_dial_status[DIAL_CTRL_STATE_FAN_INDEX] == UART_FAN_SPEED_OFF) return; //if(_climateControl->getDialCtrlFan() == UART_FAN_SPEED_OFF) return;
+    if(_dial_status[DIAL_CTRL_STATE_FAN_INDEX] == UART_FAN_SPEED_OFF) return;
     
     boolResult = (bool)(acRec & UART_AC_BUTTON_MASK);
     if (boolResult != (bool)(PREV_B0_AC_REC & UART_AC_BUTTON_MASK))
     { 
-        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_AC_MASK; //_climateControl->setToggleRequest(true, DIAL_CTRL_STATE_AC_MASK);
-        //_dial_status[DIAL_CTRL_STATE_PREV_INDEX] |= DIAL_CTRL_STATE_AC_MASK; //_climateControl->setPrevDialCtrl(boolResult, DIAL_CTRL_STATE_AC_MASK);
+        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_AC_MASK;
     }
 
     _dial_status[DIAL_CTRL_STATE_TEMP_INDEX] = (temp + TEMP_OFFSET);
@@ -106,21 +97,18 @@ void Nissan370Z_AC_Dial::_updateB1DialStatus(uint8_t* cmd)
     uint8_t rearDefByte = cmd[3];
 
     bool boolResult = (bool)(rearDefByte & UART_REAR_DEFROST_BUTTON_MASK);
-    if (boolResult != (bool)(PREV_B1_RDEF & UART_REAR_DEFROST_BUTTON_MASK)) //_climateControl->getPrevDialCtrl(DIAL_CTRL_STATE_RDEF_MASK))
+    if (boolResult != (bool)(PREV_B1_RDEF & UART_REAR_DEFROST_BUTTON_MASK))
     {
-        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_RDEF_MASK; //_climateControl->setToggleRequest(true, DIAL_CTRL_STATE_RDEF_MASK);        
-        //_climateControl->setPrevDialCtrl(boolResult, DIAL_CTRL_STATE_RDEF_MASK); <- this will be done once this fucntion returns and _b1_data gets updated
+        if (boolResult) _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_RDEF_MASK;
     }
 
     switch (fanByte)
     {
         case UART_FAN_SPEED_OFF: //0
         {
-            if(PREV_B1_FAN != UART_FAN_SPEED_OFF) //_climateControl->getMode() != NIS_AC2_MODE_OFF)
+            if(PREV_B1_FAN != UART_FAN_SPEED_OFF)
             {
-                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_OFF_MASK; //_climateControl->setToggleRequest(true, DIAL_CTRL_STATE_OFF_MASK);
-                _dial_status[DIAL_CTRL_STATE_FAN_INDEX] = UART_FAN_SPEED_OFF; //_climateControl->setDialCtrlFan(0);
-                //clearDialStateToggles(); //clear all toggle requests <- cant do that as we need to toggle OFF!
+                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_OFF_MASK;
                 return;
             }
             return;
@@ -144,7 +132,7 @@ void Nissan370Z_AC_Dial::_updateB1DialStatus(uint8_t* cmd)
     }
 
     //update Mode
-    _dial_status[DIAL_CTRL_STATE_MODE_INDEX] = modeByte; //_climateControl->setDialCtrlMode(modeByte);
+    _dial_status[DIAL_CTRL_STATE_MODE_INDEX] = modeByte;
 
     //Set mode toggles (Auto and Windshield Defrost)
     switch (modeByte)
@@ -152,19 +140,17 @@ void Nissan370Z_AC_Dial::_updateB1DialStatus(uint8_t* cmd)
         case UART_AC_MODE_AUTO: //0, Auto mode is a button press - request toggle if present
         {
             //if the previous Auto state is false
-            if(PREV_B1_FAN == UART_FAN_SPEED_OFF || PREV_B1_FAN == UART_FAN_SPEED_AUTO || PREV_B1_MODE != UART_AC_MODE_AUTO) //!_climateControl->getPrevDialCtrl(DIAL_CTRL_STATE_AUTO_MASK)) //toggle auto if OFF, if ON - ignore
+            if(PREV_B1_FAN == UART_FAN_SPEED_OFF || PREV_B1_FAN == UART_FAN_SPEED_AUTO || PREV_B1_MODE != UART_AC_MODE_AUTO)//toggle auto if OFF, if ON - ignore
             {
-                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_AUTO_MASK; //_climateControl->setToggleRequest(true, DIAL_CTRL_STATE_AUTO_MASK);
-                //_dial_status[DIAL_CTRL_STATE_PREV_INDEX] |= DIAL_CTRL_STATE_AUTO_MASK; //_climateControl->setPrevDialCtrl(true, DIAL_CTRL_STATE_AUTO_MASK); //set auto state ON
+                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_AUTO_MASK;//set auto state ON
             }
             break;
         }
         case UART_AC_MODE_WINDDEFROST: //7
         {
-            if(PREV_B1_MODE != UART_AC_MODE_WINDDEFROST) //!_climateControl->getPrevDialCtrl(DIAL_CTRL_STATE_WDEF_MASK)) //toggle defrost if OFF, if On - ignore
+            if(PREV_B1_MODE != UART_AC_MODE_WINDDEFROST) //toggle defrost if OFF, if On - ignore
             {
-                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_WDEF_MASK; //_climateControl->setToggleRequest(true, DIAL_CTRL_STATE_WDEF_MASK);
-                //_climateControl->setPrevDialCtrl(true, DIAL_CTRL_STATE_WDEF_MASK); //set defrost state ON
+                _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_WDEF_MASK; //set defrost state ON
             }
             break;
         }

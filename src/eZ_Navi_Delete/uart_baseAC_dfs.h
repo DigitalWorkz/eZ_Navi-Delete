@@ -25,10 +25,10 @@
 #define UART_A1_RESP_RDEF_ON             0x40
 
 //{Toggle flag states} = 0, Mode, Off, WindDef, Auto, RearDef, Recirc, AC
-        //{Mode} = 0-7
-        //{Fan} = 0=Off, 1=Auto, 2-26=FanSpeeds
-        //{Temp} = 0-30
-        //{prev flag states} = 0,0,0,windDefON,AutoON,prevRearDef,prevRecirc,prevAC
+//{Mode} = 0-7
+//{Fan} = 0=Off, 1=Auto, 2-26=FanSpeeds
+//{Temp} = 0-30
+//{prev flag states} = 0,0,0,windDefON,AutoON,prevRearDef,prevRecirc,prevAC
 
 
 #define DIAL_CTRL_STATE_TOGGLE_INDEX     0

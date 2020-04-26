@@ -174,7 +174,7 @@ void Nissan370Z_AC_System::updateCAN()
     }
 }
 
-//Debug?
+//Debug
 void Nissan370Z_AC_System::setCANDebug()
 {
     uint8_t* dial = _dial->getDialState();

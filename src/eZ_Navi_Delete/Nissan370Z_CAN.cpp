@@ -31,7 +31,6 @@ bool Nissan370Z_CAN::begin()
         
         _canBus->setNormalMode();
         _isInitialized = true;
-        //Serial.print("IntMask: ");Serial.println(_canBus->getInterruptMask(), BIN);
     }
     return _isInitialized;
 }
@@ -155,6 +154,8 @@ void Nissan370Z_CAN::broadcastCAN()
     _can_541_state.data[7] = (uint8_t)0x80|_roll;
     _can_542_state.data[7] = _roll;
 
+
+///FIX ME!: Need to scope with CAN traffic and debug toggles
 //    noInterrupts();
     _canBus->sendMessage(&_can_540_state);
 //    interrupts();

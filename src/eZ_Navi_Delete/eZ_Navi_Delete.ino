@@ -2,7 +2,6 @@
 #include "Nissan370Z_AC_System.h"
 #include <HardwareSerial.h>
 #include <mcp2515.h>
-//#include <Arduino.h>
 
 MCP2515* mcp_can1;
 Nissan370Z_AC_System* AC_System;
@@ -18,9 +17,7 @@ void setup()
 
 void CAN_ISR()
 {
-    //do{
-       AC_System->can_isr();
-    //}while(!digitalRead(CAN_INT_PIN));
+    AC_System->can_isr();
 }
 
 void loop()
@@ -28,6 +25,11 @@ void loop()
     AC_System->checkDialCom();
     AC_System->sendDialResponse();
     AC_System->updateCAN();
-    //periodically check the INT pin isnt stuck due to falling edge during SPI transfer
+
+    ///Fix me!:
+    //Periodically check the INT pin isnt stuck due to falling edge during SPI transfer
+    //This shouldnt be needed, but sometimes a falling is missed which results in a
+    //situation where the ISR never gets called again. This ensures it will but is not
+    //desired operation.
     if(!digitalRead(CAN_INT_PIN)) AC_System->can_isr();
 }

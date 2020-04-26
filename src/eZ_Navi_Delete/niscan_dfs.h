@@ -1,10 +1,3 @@
-//#define togglePin3 PORTD ^= _BV(3)
-//#define togglePin4 PORTD ^= _BV(4)
-//#define togglePin5 PORTD ^= _BV(5)
-//#define togglePin6 PORTD ^= _BV(6)
-//#define togglePin7 PORTD ^= _BV(7)
-
-
 /*
  * NISSAN CONTROL DEFINITIONS
  */
@@ -48,7 +41,6 @@
 #define NIS_AC2_FANS_6 0x34
 #define NIS_AC2_FANS_7 0x3C
 
-
 #define NIS_AC3_IDX 0x54C
 
 #define NIS_AC3_AC_IDX  2
@@ -56,13 +48,8 @@
 #define NIS_AC3_AC_ON   B10000000
 #define NIS_AC3_AC_OFF  B00000000
 
-
 #define NIS_AC4_IDX 0x625
 
 #define NIS_AC4_RH_IDX  0
 #define NIS_AC4_RH_MSK  B00000001
 #define NIS_AC4_RH_ON   B00000001
-
-
-//UART DEFS
-
