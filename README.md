@@ -31,7 +31,6 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - Large tables with virutal controls (app) over USB via OTG
 - Large tables with virutal controls (app) over Bluetooth
 
-
 ### Implementation Videos
 - [Initial Harwdare Test]
 - [Rev 0.1 PCB Hardware Test]
@@ -42,6 +41,11 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [Everytime Library] - Scheduler library
 - [MCP2515 Library] - CAN Controller library
 
+### Prebuilt Products
+- [OSH PARK PCB] - Current PCB revision for sale
+- [OSH Stencil] - Current stencil for sale (trying to figure out if I can share projects like OSH Park)
+- [Built Firmware] - Current firmware file
+
 [Wiki]:https://github.com/radensb/eZ_Navi-Delete/wiki
 [Stereo Thread on the370Z.com]: http://www.the370z.com/audio-video/133687-joying-android-9-7-hu-install-90-complete.html
 [eZ Navi-Delete Thread on the 370Z.com]: http://www.the370z.com/audio-video/130471-ez-navi-delete-project.html
@@ -51,4 +55,7 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 [MCP2515 Library]: https://github.com/autowp/arduino-mcp2515
 [STM32duino Bootloader]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
 [Arduino STM32]: https://github.com/rogerclarkmelbourne/Arduino_STM32
+[OSH PARK PCB]: https://oshpark.com/shared_projects/BYueYDq3
+[OSH Stencil]: https://www.oshstencils.com/
+[Built Firmware]: https://github.com/radensb/eZ_Navi-Delete/blob/master/build/eZ_Navi_Delete_v0p5.elf
 
