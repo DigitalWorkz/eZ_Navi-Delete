@@ -3,6 +3,7 @@
 Custom hardware/software solution to remove the factory navigation system from a Nissan 370Z and install an aftermarket solution while retaining AC control over the CAN bus.
 
  - [Wiki] for more info.
+ - [eZ Navi-Delete Thread on the 370Z.com] with discussion.
  - [Thread on the370Z.com] showing my new stereo installation paird with the eZ Navi-Delete
 
 ### Introduction
@@ -42,7 +43,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [MCP2515 Library] - CAN Controller library
 
 [Wiki]:https://github.com/radensb/eZ_Navi-Delete/wiki
-[Thread on the370Z.com]:http://www.the370z.com/audio-video/130471-ez-navi-delete-project.html
+[Stereo Thread on the370Z.com]: http://www.the370z.com/audio-video/133687-joying-android-9-7-hu-install-90-complete.html
+[eZ Navi-Delete Thread on the 370Z.com]: http://www.the370z.com/audio-video/130471-ez-navi-delete-project.html
 [Initial Harwdare Test]:https://www.youtube.com/watch?v=1-dMO8ove7c&feature=youtu.be
 [Rev 0.1 PCB Hardware Test]:https://youtu.be/FeSBLwDEIZM
 [Everytime Library]: https://www.arduinolibraries.info/libraries/everytime
