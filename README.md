@@ -1,4 +1,4 @@
-﻿Nissan 370Z (2009) eZ Navi-Delete
+﻿Nissan 370Z eZ Navi-Delete
 ==================================
 Custom hardware/software solution to remove the factory navigation system from a Nissan 370Z and install an aftermarket solution while retaining AC control over the CAN bus.
 
@@ -33,8 +33,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 
 - Car stereo with physical controls
 - Mini tablet with physical controls
-- Large tables with virutal controls (app) over USB via OTG
-- Large tables with virutal controls (app) over Bluetooth
+- Large tablets with virutal controls (app) over USB via OTG
+- Large tablets with virutal controls (app) over Bluetooth
 
 ### Implementation Videos
 - [Initial Harwdare Test]
