@@ -52,6 +52,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [Built Firmware] - Current firmware file
 - PCB's ???
 
+DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK.
+
 [Wiki]:https://github.com/radensb/eZ_Navi-Delete/wiki
 [Stereo Thread on the370Z.com]: http://www.the370z.com/audio-video/133687-joying-android-9-7-hu-install-90-complete.html
 [eZ Navi-Delete Thread on the 370Z.com]: http://www.the370z.com/audio-video/130471-ez-navi-delete-project.html
