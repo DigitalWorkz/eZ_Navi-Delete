@@ -1,5 +1,5 @@
+#include "eZ_NaviDelete_Build_Conf.h"
 #include "Nissan370Z_AC_Dial.h"
-#include "uart_baseAC_dfs.h"
 #include <Arduino.h>
 
 Nissan370Z_AC_Dial::Nissan370Z_AC_Dial(HardwareSerial* DialUart)

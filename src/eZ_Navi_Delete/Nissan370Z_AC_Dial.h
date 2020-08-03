@@ -2,11 +2,49 @@
 #define __Nissan370Z_AC_Dial_H__
 #include <HardwareSerial.h>
 
+//UART Dial Data Definitions
+#define UART_AC_BUTTON_MASK             0x20
+#define UART_RECIRCULATION_BUTTON_MASK  0x04
+#define UART_REAR_DEFROST_BUTTON_MASK   0x02
 
-#define PREV_B0_AC_REC  _b0_data[1]
-#define PREV_B1_MODE    _b1_data[1]
-#define PREV_B1_FAN     _b1_data[2]
-#define PREV_B1_RDEF    _b1_data[3]
+#define UART_AC_MODE_AUTO               0x00
+#define UART_AC_MODE_FACE               0x01
+#define UART_AC_MODE_FACEFEET           0x02
+#define UART_AC_MODE_FEET               0x03
+#define UART_AC_MODE_FEET2              0x04
+#define UART_AC_MODE_FEETWIND           0x05
+#define UART_AC_MODE_FEETWIND2          0x06
+#define UART_AC_MODE_WINDDEFROST        0x07
+
+#define UART_FAN_SPEED_OFF              0x00
+#define UART_FAN_SPEED_AUTO             0x01
+
+#define UART_A1_RESP_AC_ON              0x02
+#define UART_A1_RESP_RECIR_ON           0x08
+#define UART_A1_RESP_RECIR_OFF          0x04
+#define UART_A1_RESP_RDEF_ON            0x40
+
+//Dial Status Indices
+#define DIAL_CTRL_STATE_TOGGLE_INDEX    0
+#define DIAL_CTRL_STATE_MODE_INDEX      1
+#define DIAL_CTRL_STATE_FAN_INDEX       2
+#define DIAL_CTRL_STATE_TEMP_INDEX      3
+#define DIAL_CTRL_STATE_PREV_INDEX      4
+
+//Dial Status Masks
+#define DIAL_CTRL_STATE_AC_MASK         0x01
+#define DIAL_CTRL_STATE_RECIRC_MASK     0x02
+#define DIAL_CTRL_STATE_RDEF_MASK       0x04
+#define DIAL_CTRL_STATE_AUTO_MASK       0x08
+#define DIAL_CTRL_STATE_WDEF_MASK       0x10
+#define DIAL_CTRL_STATE_OFF_MASK        0x20
+#define DIAL_CTRL_STATE_MODE_MASK       0x40
+
+//Aliases
+#define PREV_B0_AC_REC                  _b0_data[1]
+#define PREV_B1_MODE                    _b1_data[1]
+#define PREV_B1_FAN                     _b1_data[2]
+#define PREV_B1_RDEF                    _b1_data[3]
 
 class Nissan370Z_AC_Dial
 {

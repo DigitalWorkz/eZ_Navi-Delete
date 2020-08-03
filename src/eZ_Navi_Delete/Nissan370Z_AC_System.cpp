@@ -1,6 +1,5 @@
+#include "eZ_NaviDelete_Build_Conf.h"
 #include "Nissan370Z_AC_System.h"
-#include "uart_baseAC_dfs.h"
-#include "niscan_dfs.h"
 
 Nissan370Z_AC_System::Nissan370Z_AC_System(HardwareSerial* uart, MCP2515* can)
 {    
@@ -52,12 +51,8 @@ void Nissan370Z_AC_System::updateCanData(uint8_t* dialState, uint8_t* data541, u
     }
 
     if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_AUTO_MASK))      data541[3] ^= 0x80; //1 << 7; //_can2.toggleFlag(3, B10000000);
-    
-    #ifdef TEMP_F
-    if (temperature >= 0x3C && temperature <= 0x5A) data542[1] = temperature;//_can3.writeByte(1, temperature);
-    #else //TEMP_C
-    if (temperature >= 0x20 && temperature <= 0x3C) data542[1] = temperature;//_can3.writeByte(1, temperature);
-    #endif
+
+    if (TEMP_VALID) data542[1] = temperature;//_can3.writeByte(1, temperature);
     data541[2] ^= 0x80; //1 << 7; //_can2.toggleFlag(2, B10000000); -> temp
 
     if(dialState[DIAL_CTRL_STATE_MODE_INDEX] == UART_AC_MODE_AUTO)

@@ -1,6 +1,5 @@
 #include <SPI.h>
 #include <mcp2515.h>
-//#include <can.h>
 #include "Nissan370Z_CAN.h"
 
 
