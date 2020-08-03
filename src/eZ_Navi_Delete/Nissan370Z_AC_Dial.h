@@ -4,7 +4,6 @@
 
 
 #define PREV_B0_AC_REC  _b0_data[1]
-
 #define PREV_B1_MODE    _b1_data[1]
 #define PREV_B1_FAN     _b1_data[2]
 #define PREV_B1_RDEF    _b1_data[3]
