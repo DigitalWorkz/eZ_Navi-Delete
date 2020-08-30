@@ -2,7 +2,7 @@
 ==================================
 Custom hardware/software solution to remove the factory navigation system from a Nissan 370Z and install an aftermarket solution while retaining AC control over the CAN bus.
 
- - [Wiki] for more info.
+ - [Wiki] for more info. (NOTE: Information in the Wiki is still under development and is subjet to change until finalized.)
  - [eZ Navi-Delete Thread on the 370Z.com] with discussion.
  - [Stereo Thread on the370Z.com] showing my new stereo installation paird with the eZ Navi-Delete
 
@@ -33,8 +33,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 
 - Car stereo with physical controls
 - Mini tablet with physical controls
-- Large tablets with virutal controls (app) over USB via OTG
-- Large tablets with virutal controls (app) over Bluetooth
+- Large tablets with virtual controls (app) over USB via OTG
+- Large tablets with virtual controls (app) over Bluetooth
 
 ### Implementation Videos
 - [Initial Harwdare Test]
