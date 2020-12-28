@@ -1,6 +1,12 @@
 #ifndef __EZ_NAVIDELETE_BLD_CNF_H__
 #define __EZ_NAVIDELETE_BLD_CNF_H__
 
+//#define ENABLE_BT_PASSTHROUGH
+
+#define EXT_COMS_SERIAL eZ_DIAL
+//#define EXT_COMS_SERIAL eZ_USB
+//#define EXT_COMS_SERIAL eZ_BT
+
 //Operatinal parameters
 #define TEMP_F //Comment out for Dec C
 
