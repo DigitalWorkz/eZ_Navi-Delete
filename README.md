@@ -48,10 +48,9 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [MCP2515 Library] - CAN Controller library
 
 ### Prebuilt Products
-- [OSH PARK PCB] - Current PCB revision for sale
-- [OSH Stencil] - Current stencil for sale (trying to figure out if I can share projects like OSH Park)
+- Current PCB revision - Board only (coming soon)
+- Current PWA revision - Current pre-assembled board (coming soon) 
 - [Built Firmware] - Current firmware file
-- PCB's ???
 
 DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK.
 
