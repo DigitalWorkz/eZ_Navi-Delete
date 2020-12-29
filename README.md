@@ -42,7 +42,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 
 ### Code Prerequisites
 - [STM32duino Bootloader] - Bootloader to allow USB programming
-- [Arduino STM32] - Core library
+- [Arduino STM32] - Core library (current trunk)
+- [OFFICIAL Arduino STM32 CORE] - Core library (buildConfig dev branch)
 - [Everytime Library] - Scheduler library
 - [MCP2515 Library] - CAN Controller library
 
@@ -67,6 +68,7 @@ DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK.
 [MCP2515 Library]: https://github.com/autowp/arduino-mcp2515
 [STM32duino Bootloader]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
 [Arduino STM32]: https://github.com/rogerclarkmelbourne/Arduino_STM32
+[OFFICIAL Arduino STM32 CORE]: https://github.com/stm32duino/Arduino_Core_STM32
 [OSH PARK PCB]: https://oshpark.com/shared_projects/BYueYDq3
 [OSH Stencil]: https://www.oshstencils.com/
 [Built Firmware]: https://github.com/radensb/eZ_Navi-Delete/blob/master/build/eZ_Navi_Delete_v0p5.elf
