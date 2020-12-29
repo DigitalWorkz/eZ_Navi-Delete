@@ -8,7 +8,7 @@ Custom hardware/software solution to remove the factory navigation system from a
 
 ### Introduction
 <p align="center">
-  <img src="/img/support/eZNaviDelete_0p7_cartoon.png" width="1080" alt="accessibility text">
+  <img src="/img/support/eZNaviDelete_current_cartoon.png" width="1080" alt="accessibility text">
 </p>
 
 I have been working on a way to delete the factory Navi in my ‘09 370Z while still retaining AC control that did not involve replacing the CAN based AC Amp, modifying existing wiring harnesses, or running new wires to the ECU and fuze box. The hardware platform is designed to be compatible with a wide range of interfaces. Only a subset of the functionality would be utilized in a custom stereo installation depending on the type of installation being done, but any or all combinations could be used (with the exception of multiple AC controllers). There are custom interface ports defined below and two connectors to interface with the car's existing wire harness via the connectors that went to the stock HU and control panel.
