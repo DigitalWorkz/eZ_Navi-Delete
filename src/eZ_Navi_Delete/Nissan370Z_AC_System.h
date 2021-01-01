@@ -20,8 +20,8 @@
 // DIAL_UART2_Rx    PA3(13)
 // BT_UART_Tx       PA9(30)
 // BT_UART_Rx       PA10(31)
-// BT_MODE_PIN      PB15 (28)
-// BT_nRST_PIN      PB14 (27)
+// BT_MODE_PIN      PA8 (29)
+// BT_nRST_PIN      PB15 (28)
 // USB_D+           PA11(32)
 // USB_D-           PA12(33)
 // I2C2_SCL2        PB10(21)
@@ -34,8 +34,8 @@
 
 #define CAN_INT_PIN PB0
 #define CAN_CS_PIN  PA4
-#define BT_nRST_PIN PB14
-#define BT_MODE_PIN PB15
+#define BT_nRST_PIN PB15
+#define BT_MODE_PIN PA8
 
 
 class Nissan370Z_AC_System
