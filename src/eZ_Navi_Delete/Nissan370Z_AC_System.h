@@ -59,6 +59,8 @@ class Nissan370Z_AC_System
     void can_isr();
     //Init the dial and CAN interfaces
     void begin();
+    //Run the application
+    void run();
     //Wrapper to call dial function
     void checkDialCom();
     //Send the A0 and A1 responces

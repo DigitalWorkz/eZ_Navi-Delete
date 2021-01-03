@@ -1,14 +1,36 @@
 #ifndef __EZ_NAVIDELETE_BLD_CNF_H__
 #define __EZ_NAVIDELETE_BLD_CNF_H__
 
-//#define ENABLE_BT_PASSTHROUGH
+/**************************************************************************
+    User Selectable Options
+**************************************************************************/
+/// >>> Uncomment desired interface (ONLY ONE!) <<<
+//#define __USE_EZ_BLUETOOTH_COMS
+//#define __USE_EZ_USB_COMS
+#define __USE_EZ_DIAL_COMS
 
+/// >>> Comment out to use deg C <<<
+#define TEMP_F 
+
+/**************************************************************************
+**************************************************************************/
+
+
+//Debug
+//#define USE_STM32_CORE
+
+
+
+#ifdef __USE_EZ_BLUETOOTH_COMS
+//#define __HAS_BLUETOOTH
+#define EXT_COMS_SERIAL eZ_BT
+
+#elif defined __USE_EZ_DIAL_COMS
 #define EXT_COMS_SERIAL eZ_DIAL
-//#define EXT_COMS_SERIAL eZ_USB
-//#define EXT_COMS_SERIAL eZ_BT
 
-//Operatinal parameters
-#define TEMP_F //Comment out for Dec C
+#else //__USE_EZ_DIAL_COMS
+#define EXT_COMS_SERIAL USB_DIAL
+#endif
 
 #ifdef TEMP_F
 #define TEMP_VALID      temperature >= 0x3C && temperature <= 0x5A

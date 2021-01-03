@@ -29,6 +29,23 @@ void Nissan370Z_AC_System::begin()
     }
 }
 
+void Nissan370Z_AC_System::run()
+{
+    _dial->checkDialCom();
+    sendDialResponse();
+    
+    updateCAN();
+    
+    #ifndef USE_STM32_CORE
+    ///Fix me!:
+    //Periodically check the INT pin isnt stuck due to falling edge during SPI transfer
+    //This shouldnt be needed, but sometimes a falling is missed which results in a
+    //situation where the ISR never gets called again. This ensures it will but is not
+    //desired operation.
+    if(!digitalRead(CAN_INT_PIN)) _can->ISR_can_rx(); //can_isr();
+    #endif
+}
+
 void Nissan370Z_AC_System::syncSystem()
 {
     //Update CAN messages with Dial State
