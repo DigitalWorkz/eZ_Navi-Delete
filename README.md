@@ -48,11 +48,16 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 - [MCP2515 Library] - CAN Controller library
 
 ### Prebuilt Products
-- Current PCB revision - Board only (coming soon)
+- [Current PCB revision] - HW 1.0b Board only
 - Current PWA revision - Current pre-assembled board (coming soon) 
 - [Built Firmware] - Current firmware file
 
-DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK.
+<h3>
+
+```diff
+-! DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK !-
+```
+</h3>
 
 [Wiki]:https://github.com/radensb/eZ_Navi-Delete/wiki
 [Stereo Thread on the370Z.com]: http://www.the370z.com/audio-video/133687-joying-android-9-7-hu-install-90-complete.html
@@ -68,7 +73,7 @@ DISCLAIMER: THIS IS CUSTOM HARDWARE AND SOFTWARE PROJECT. USE AT YOUR OWN RISK.
 [STM32duino Bootloader]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
 [Arduino STM32]: https://github.com/rogerclarkmelbourne/Arduino_STM32
 [OFFICIAL Arduino STM32 CORE]: https://github.com/stm32duino/Arduino_Core_STM32
-[OSH PARK PCB]: https://oshpark.com/shared_projects/BYueYDq3
+[Current PCB revision]: https://github.com/radensb/eZ_Navi-Delete/wiki/7)-How-to-Buy-an-Assembled-PWA-or-Bare-PCB#ez-navi-delete-pcbs-only
 [OSH Stencil]: https://www.oshstencils.com/
 [Built Firmware]: https://github.com/radensb/eZ_Navi-Delete/blob/master/build/eZ_Navi_Delete_v0p5.elf
 
