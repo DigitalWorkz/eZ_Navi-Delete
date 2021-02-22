@@ -74,8 +74,8 @@ The idea is to be able to configure the eZ Navi-Delete board to a custom stereo 
 [STM32duino Bootloader]: https://github.com/rogerclarkmelbourne/STM32duino-bootloader
 [Arduino STM32]: https://github.com/rogerclarkmelbourne/Arduino_STM32
 [OFFICIAL Arduino STM32 CORE]: https://github.com/stm32duino/Arduino_Core_STM32
-[Current PCB revision]: https://github.com/radensb/eZ_Navi-Delete/wiki/7%28-How-to-Buy-an-Assembled-PWA-or-Bare-PCB#ez-navi-delete-pcbs-only
-[Current PWA revision]: https://github.com/radensb/eZ_Navi-Delete/wiki/7%28-How-to-Buy-an-Assembled-PWA-or-Bare-PCB#how-to-purchase-an-ez-navi-delete-pwa
+[Current PCB revision]: https://github.com/radensb/eZ_Navi-Delete/wiki/7%29-How-to-Buy-an-Assembled-PWA-or-Bare-PCB#ez-navi-delete-pcbs-only
+[Current PWA revision]: https://github.com/radensb/eZ_Navi-Delete/wiki/7%29-How-to-Buy-an-Assembled-PWA-or-Bare-PCB#how-to-purchase-an-ez-navi-delete-pwa
 [OSH Stencil]: https://www.oshstencils.com/
 [Built Firmware]: https://github.com/radensb/eZ_Navi-Delete/blob/master/build/
 
