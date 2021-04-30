@@ -8,6 +8,15 @@ Nissan370Z_AC_System* AC_System;
 
 void setup()
 {
+    //disable unused ports
+    pinMode(PA8, INPUT);  //BT Config
+    pinMode(PA9, INPUT);  //UART1 Tx
+    pinMode(PA10, INPUT); //UART1 Rx
+    pinMode(PB10, INPUT); //SCL2
+    pinMode(PB11, INPUT); //SDA2
+    pinMode(PB15, OUTPUT_OPEN_DRAIN); //BT Reset
+    digitalWrite(PB15, LOW); //hold BT in reset
+    
     pinMode(CAN_INT_PIN, INPUT);
     mcp_can1 = new MCP2515(CAN_CS_PIN);
     AC_System = new Nissan370Z_AC_System(&Serial2, mcp_can1);
