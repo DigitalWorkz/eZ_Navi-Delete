@@ -1,0 +1,1 @@
+First,  double click on "install_drivers.bat" to install the Maple DFU and serial drivers. Once it completes, double click on install_STM_COM_drivers.bat" to install the COM driver..
