@@ -1,7 +1,7 @@
 
 #include "Nissan370Z_AC_System.h"
 #include <HardwareSerial.h>
-#include "mcp2515.h"
+#include "src\mcp2515\mcp2515.h"
 
 MCP2515* mcp_can1;
 Nissan370Z_AC_System* AC_System;

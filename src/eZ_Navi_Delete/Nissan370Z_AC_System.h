@@ -2,7 +2,7 @@
 #define __Nissan370Z_AC_System__
 #include "Nissan370Z_AC_Dial.h"
 #include "Nissan370Z_CAN.h"
-#include "everytime.h"
+#include "src\everytime\src\everytime.h"
 #include <Arduino.h>
 
 /*

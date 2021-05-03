@@ -1,6 +1,6 @@
 #ifndef __Nissan370Z_CAN_H__
 #define __Nissan370Z_CAN_H__
-#include "mcp2515.h"
+#include "src\mcp2515\mcp2515.h"
 
 #define CAN_DATA_BUFF_LEN 9
 #define CAN_STAT_BUFF_LEN 8
