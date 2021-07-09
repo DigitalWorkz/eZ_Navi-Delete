@@ -45,13 +45,6 @@
 #define DIAL_CTRL_STATE_OFF_MASK         0x20
 #define DIAL_CTRL_STATE_MODE_MASK        0x40
 
-//CAN Defs
-#define CAN_AC_MODE_AUTO                 0x00
-#define CAN_AC_MODE_FACE                 0x00
-#define CAN_AC_MODE_FACEFEET             0x00
-#define CAN_AC_MODE_FEET                 0x00
-#define CAN_AC_MODE_FEETWIND             0x00
-
 //Operatinal parameters
 #define TEMP_F //Comment out for Dec C
 #ifdef TEMP_F

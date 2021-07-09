@@ -42,16 +42,16 @@ void Nissan370Z_AC_System::updateCanData(uint8_t* dialState, uint8_t* data541, u
     uint8_t temperature = dialState[DIAL_CTRL_STATE_TEMP_INDEX];
     uint8_t fanSpeed = dialState[DIAL_CTRL_STATE_FAN_INDEX];
 
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_OFF_MASK))       data541[2] ^= 0x01; //1 << 0; //_can2.toggleFlag(2, B00000001);
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_OFF_MASK))       data541[2] ^= 0x01; //_can2.toggleFlag(2, B00000001); -> Toggle OFF button
     //_can2.writeFlag(1, B10000000, B10000000); //always write to 1 ... rear heating is different from all other flags
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_RDEF_MASK))      data541[1] |= 0x80; //1 << 7; 
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_RDEF_MASK))      data541[1] |= 0x80; //Toggle Rear Def Button
     if(fanSpeed == UART_FAN_SPEED_OFF)
     {
         _dial->clearDialStateToggles();
         return;
     }
 
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_AUTO_MASK))      data541[3] ^= 0x80; //1 << 7; //_can2.toggleFlag(3, B10000000);
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_AUTO_MASK))      data541[3] ^= 0x80; //_can2.toggleFlag(3, B10000000); -> Toggle AUTO button
     
     #ifdef TEMP_F
     if (temperature >= 0x3C && temperature <= 0x5A) data542[1] = temperature;//_can3.writeByte(1, temperature);
@@ -66,9 +66,9 @@ void Nissan370Z_AC_System::updateCanData(uint8_t* dialState, uint8_t* data541, u
         return;
     }
 
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_AC_MASK))        data541[2] ^= 0x04; //1 << 2; //_can2.toggleFlag(2, B00000100);
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_RECIRC_MASK))    data541[1] ^= 0x02; //1 << 1; //_can2.toggleFlag(1, B00000010);
-    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_WDEF_MASK))      data541[0] ^= 0x01; //1 << 0; //_can2.toggleFlag(0, B00000001);
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_AC_MASK))        data541[2] ^= 0x04; //_can2.toggleFlag(2, B00000100); -> Toggle AC button
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_RECIRC_MASK))    data541[1] ^= 0x02; //_can2.toggleFlag(1, B00000010); -> Toggle RECIRC button
+    if((bool)(dialState[DIAL_CTRL_STATE_TOGGLE_INDEX] & DIAL_CTRL_STATE_WDEF_MASK))      data541[0] ^= 0x01; //_can2.toggleFlag(0, B00000001); -> Toggle WDEF button
 
     everyl(500) //double the CAN message rate to ensure non-stale data compare
     {
@@ -77,14 +77,13 @@ void Nissan370Z_AC_System::updateCanData(uint8_t* dialState, uint8_t* data541, u
            //dialState[DIAL_CTRL_STATE_FAN_INDEX] != UART_FAN_SPEED_OFF &&
            convertToCANMode(dialState[DIAL_CTRL_STATE_MODE_INDEX]) != curr_CAN_mode)
            {
-               data541[0] ^= 0x10; //1 << 4; //_can2.toggleFlag(0, B00010000);
+               data541[0] ^= 0x10; //_can2.toggleFlag(0, B00010000);
            }
     }
 
-    //always toggle temp and fan flags to always update the byte data - bucause, why not?
-
+    //always toggle temp and fan flags to always update the byte data - because, why not?
     if (fanSpeed >= 0 && fanSpeed <= 7) data542[0] = fanSpeed * 8; //_can3.writeByte(0, fanSpeed * 8);
-    data541[3] ^= 0x10; //1 << 4; //_can2.toggleFlag(3, B00010000); -> fan
+    data541[3] ^= 0x10; //_can2.toggleFlag(3, B00010000); -> fan
     
     _dial->clearDialStateToggles();
 }

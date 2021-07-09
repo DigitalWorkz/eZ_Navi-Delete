@@ -54,7 +54,7 @@ void Nissan370Z_AC_Dial::_updateDialData(uint8_t* cmd)
         case 0xB0:
         {
             _updateB0DialStatus(cmd);
-            memcpy(_b0_data, cmd, sizeof(_b1_data));
+            memcpy(_b0_data, cmd, sizeof(_b0_data));
             break;
         }
         case 0xB1:
@@ -109,6 +109,7 @@ void Nissan370Z_AC_Dial::_updateB1DialStatus(uint8_t* cmd)
             if(PREV_B1_FAN != UART_FAN_SPEED_OFF)
             {
                 _dial_status[DIAL_CTRL_STATE_TOGGLE_INDEX] |= DIAL_CTRL_STATE_OFF_MASK;
+                _dial_status[DIAL_CTRL_STATE_FAN_INDEX] = 0;
                 return;
             }
             return;
